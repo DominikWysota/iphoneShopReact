@@ -4,11 +4,11 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    shopData: []
+    shopData: null
   };
 
   componentDidMount() {
-    console.log("didmount");
+    console.log("didmount w app");
     fetch("data/products.json")
       .then(response => {
         if (response.ok) {
@@ -26,11 +26,12 @@ class App extends Component {
   }
 
   render() {
-    console.log("renderuje");
+    console.log("renderuje w app");
     return (
-      <div>
-        <Items shopItems={this.state.shopData} />
-      </div>
+      <>
+        <header></header>
+        <section>{this.state.shopData && <Items shopItems={this.state.shopData} />}</section>
+      </>
     );
   }
 }

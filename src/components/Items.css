@@ -1,0 +1,17 @@
+.item {
+  background-color: gray;
+  height: 60vh;
+  width: 90%;
+  margin: 10px auto;
+  padding-top: 5px;
+}
+.photo {
+  background-color: white;
+  height: 60%;
+  width: 90%;
+  margin: 5px auto;
+}
+
+.item h1 {
+  text-align: center;
+}
