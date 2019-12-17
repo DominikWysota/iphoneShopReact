@@ -8,7 +8,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("didmount w app");
     fetch("data/products.json")
       .then(response => {
         if (response.ok) {
@@ -26,7 +25,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("renderuje w app");
     return (
       <>
         <header></header>

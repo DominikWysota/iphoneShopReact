@@ -9,28 +9,38 @@ class Items extends Component {
 
   items = this.props.shopItems;
 
-  // choice = {
-  //   id: this.item.id,
-  //   colorID,
-  //   capacityID
-  // }
+  componentDidMount() {
+    this.items.forEach(item => {
+      const choice = {
+        id: item.id,
+        neme: item.name,
+        price: item.price,
+        colorName: item.options[0].values[0].name,
+        colorID: item.options[0].values[0].id,
+        capacityID: item.options[1].values[0].id
+      };
+      this.setState(prevState => ({
+        choices: [...prevState.choices, choice]
+      }));
+    });
+  }
 
-  // componentDidMount() {
-  //   this.items.forEach(item => {
-  //     this.setState(prevState => ({
-  //       choices: [...prevState]
-  //     })
-  //   })
-  // }
-
-  clickChange = () => {};
+  clickChangeColor = event => {
+    const iditem = event.target.getAttribute("iditem") * 1;
+    const colorID = event.target.getAttribute("color_id") * 1;
+    console.log(iditem);
+    this.setState(prevState => ({
+      choices: prevState.choices.map(obj =>
+        obj.id === iditem ? Object.assign(obj, { colorID: colorID }) : obj
+      )
+    }));
+  };
 
   render() {
-    console.log("renderuje w items");
-    const shopItems = this.items.map(item => (
+    const shopItems = this.items.map((item, index) => (
       <div className="item" key={item.id}>
         <div className="photo">Photo</div>
-        <Colors click={this.clickChange} colors={item.options[0].values} />
+        <Colors click={this.clickChangeColor} colors={item.options[0].values} iditem={item.id} />
         <h1>{item.name}</h1>
       </div>
     ));
