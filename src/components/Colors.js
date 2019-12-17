@@ -1,8 +1,10 @@
 import React from "react";
+import "./Colors.css";
 
 const Colors = props => {
   const colors = props.colors.map((color, index) => (
     <div
+      className="colors"
       onClick={props.click}
       key={color.id}
       name={color.name}
@@ -13,7 +15,7 @@ const Colors = props => {
       Color{index}
     </div>
   ));
-  return <>{colors}</>;
+  return <div className="colorsContainer">{colors}</div>;
 };
 
 export default Colors;

@@ -1,0 +1,11 @@
+.colorsContainer {
+  width: 90%;
+  margin: auto;
+}
+.colors {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  margin-right: 2px;
+}

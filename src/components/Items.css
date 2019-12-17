@@ -12,6 +12,7 @@
   margin: 5px auto;
 }
 
-.item h1 {
+.item h1,
+.item h2 {
   text-align: center;
 }
