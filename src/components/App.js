@@ -106,7 +106,8 @@ class App extends Component {
     const idbutton = event.target.getAttribute("id_button") * 1;
     this.setState(prevState => ({
       bought: [...prevState.bought, this.state.choices[idbutton - 1]],
-      choices: []
+      choices: [],
+      activeBusket: !this.state.activeBusket
     }));
     this.state.shopData.forEach(item => {
       const choice = {
@@ -131,11 +132,17 @@ class App extends Component {
     return (
       <>
         <header>
-          <h1>IphoneShop</h1>
+          {this.state.activeBusket ? <h1>Basket</h1> : <h1>IphoneShop</h1>}
           <Basket click={this.clickHandleBasket} active={this.state.activeBusket} />
         </header>
+        {this.state.activeBusket && (
+          <Bought
+            click={this.clickHandleBasket}
+            active={this.state.activeBusket}
+            boughtProducts={this.state.bought}
+          />
+        )}
         <section>
-          {this.state.activeBusket && <Bought active={this.state.activeBusket} />}
           {this.state.shopData && (
             <Items
               clickBuy={this.handleClickBuy}
