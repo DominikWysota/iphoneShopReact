@@ -14,7 +14,7 @@ const Capacity = props => {
       {capacity.name}
     </div>
   ));
-  return <div>{capacities}</div>;
+  return <div className="capacitiesCont">{capacities}</div>;
 };
 
 export default Capacity;

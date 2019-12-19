@@ -27,7 +27,9 @@ class App extends Component {
   render() {
     return (
       <>
-        <header></header>
+        <header>
+          <h1>IphoneShop</h1>
+        </header>
         <section>{this.state.shopData && <Items shopItems={this.state.shopData} />}</section>
       </>
     );

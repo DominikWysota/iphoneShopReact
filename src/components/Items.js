@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Items.css";
 import Colors from "./Colors";
 import Capacity from "./Capacity";
+import Buy from "./Buy";
 
 class Items extends Component {
   state = {
@@ -23,7 +24,8 @@ class Items extends Component {
         colorID: item.options[0].values[0].id,
         capacityID: item.options[1].values[0].id,
         capacityName: item.options[1].values[0].name,
-        priceModifierCap: item.options[1].values[0].priceModifier
+        priceModifierCap: item.options[1].values[0].priceModifier,
+        locPhoto: item.options[0].values[0].locPhoto
       };
       this.setState(prevState => ({
         loaded: true,
@@ -37,13 +39,15 @@ class Items extends Component {
     const colorID = event.target.getAttribute("color_id") * 1;
     const colorName = event.target.getAttribute("name");
     const priceModifierCol = event.target.getAttribute("price_modifier") * 1;
+    const locPhoto = event.target.getAttribute("loc_photo");
     this.setState(prevState => ({
       choices: prevState.choices.map(obj =>
         obj.id === iditem
           ? Object.assign(obj, {
               colorID: colorID,
               colorName: colorName,
-              priceModifierCol: priceModifierCol
+              priceModifierCol: priceModifierCol,
+              locPhoto: locPhoto
             })
           : obj
       )
@@ -72,20 +76,25 @@ class Items extends Component {
     const { choices, loaded } = this.state;
     const shopItems = this.items.map((item, index) => (
       <div className="item" key={item.id}>
-        <div className="photo">Photo</div>
+        <div className="photo">
+          {loaded && <img src={choices[index].locPhoto} alt={"dsfsd"}></img>}
+        </div>
+        <h1>{loaded && `${choices[index].name} ${choices[index].colorName}`}</h1>
         <Colors click={this.clickChangeColor} colors={item.options[0].values} iditem={item.id} />
         <Capacity
           click={this.clickChangeCapacity}
           capacities={item.options[1].values}
           iditem={item.id}
         />
-        <h1>{loaded && `${choices[index].name} ${choices[index].colorName}`}</h1>
         <h2>
           {loaded &&
-            choices[index].price +
-              choices[index].priceModifierCol +
-              choices[index].priceModifierCap}
+            `Cost:
+              ${choices[index].price +
+                choices[index].priceModifierCol +
+                choices[index].priceModifierCap}
+              $`}
         </h2>
+        <Buy />
       </div>
     ));
     return <>{shopItems}</>;

@@ -2,18 +2,19 @@ import React from "react";
 import "./Colors.css";
 
 const Colors = props => {
-  const colors = props.colors.map((color, index) => (
-    <div
-      className="colors"
+  const colors = props.colors.map(color => (
+    <img
       onClick={props.click}
+      className="colors"
       key={color.id}
       name={color.name}
       color_id={color.id}
       price_modifier={color.priceModifier}
+      loc_photo={color.locPhoto}
       iditem={props.iditem}
-    >
-      Color{index}
-    </div>
+      src={color.locPhoto}
+      alt={color.name}
+    ></img>
   ));
   return <div className="colorsContainer">{colors}</div>;
 };

@@ -3,9 +3,14 @@
   margin: auto;
 }
 .colors {
+  background-color: black;
   display: inline-block;
   height: 50px;
-  width: 50px;
   border: 1px solid black;
   margin-right: 2px;
+  cursor: pointer;
+}
+
+.colors img {
+  height: 50px;
 }
