@@ -25,3 +25,12 @@ section {
   position: absolute;
   top: 45px;
 }
+
+.iconBasket {
+  position: absolute;
+  right: 20px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
