@@ -8,8 +8,11 @@ class App extends Component {
   state = {
     shopData: null,
     choices: [],
-    activeBusket: false
+    activeBusket: false,
+    bought: []
   };
+
+  bought = [];
 
   getData() {
     fetch("data/products.json")
@@ -31,7 +34,6 @@ class App extends Component {
   }
 
   choicesData = data => {
-    console.log("choices");
     data.forEach(item => {
       const choice = {
         id: item.id,
@@ -100,8 +102,32 @@ class App extends Component {
     }));
   };
 
+  handleClickBuy = event => {
+    const idbutton = event.target.getAttribute("id_button") * 1;
+    this.setState(prevState => ({
+      bought: [...prevState.bought, this.state.choices[idbutton - 1]],
+      choices: []
+    }));
+    this.state.shopData.forEach(item => {
+      const choice = {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        priceModifierCol: item.options[0].values[0].priceModifier,
+        colorName: item.options[0].values[0].name,
+        colorID: item.options[0].values[0].id,
+        capacityID: item.options[1].values[0].id,
+        capacityName: item.options[1].values[0].name,
+        priceModifierCap: item.options[1].values[0].priceModifier,
+        locPhoto: item.options[0].values[0].locPhoto
+      };
+      this.setState(prevState => ({
+        choices: [...prevState.choices, choice]
+      }));
+    });
+  };
+
   render() {
-    console.log("render app");
     return (
       <>
         <header>
@@ -112,6 +138,7 @@ class App extends Component {
           {this.state.activeBusket && <Bought active={this.state.activeBusket} />}
           {this.state.shopData && (
             <Items
+              clickBuy={this.handleClickBuy}
               clickCapacity={this.clickChangeCapacity}
               clickColor={this.clickChangeColor}
               shopItems={this.state.shopData}

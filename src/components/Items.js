@@ -6,10 +6,9 @@ import Buy from "./Buy";
 
 class Items extends Component {
   items = this.props.shopItems;
-  choices = this.props.choices;
 
   render() {
-    const { choices } = this;
+    const choices = this.props.choices;
     const shopItems = this.items.map((item, index) => (
       <div className="item" key={item.id}>
         <div className="photo">
@@ -29,7 +28,7 @@ class Items extends Component {
                 choices[index].priceModifierCap}
               $`}
         </h2>
-        <Buy />
+        <Buy click={this.props.clickBuy} idbutton={item.id} />
       </div>
     ));
     return <>{shopItems}</>;
