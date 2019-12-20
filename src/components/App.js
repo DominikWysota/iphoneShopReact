@@ -12,7 +12,7 @@ class App extends Component {
     activeBusket: false,
     bought: [],
     sumCost: 0,
-    formActive: true,
+    formActive: false,
     name: "",
     surname: "",
     email: "",
@@ -88,40 +88,36 @@ class App extends Component {
     this.setState({
       activeBusket: !this.state.activeBusket
     });
+    if (this.state.formActive) {
+      this.setState({
+        formActive: !this.state.formActive
+      });
+    }
   };
 
-  clickChangeColor = event => {
-    const iditem = event.target.getAttribute("iditem") * 1;
-    const colorID = event.target.getAttribute("color_id") * 1;
-    const colorName = event.target.getAttribute("name");
-    const priceModifierCol = event.target.getAttribute("price_modifier") * 1;
-    const locPhoto = event.target.getAttribute("loc_photo");
+  clickChangeColor = (color, iditem) => {
     this.setState(prevState => ({
       choices: prevState.choices.map(obj =>
         obj.id === iditem
           ? Object.assign(obj, {
-              colorID: colorID,
-              colorName: colorName,
-              priceModifierCol: priceModifierCol,
-              locPhoto: locPhoto
+              colorID: color.id,
+              colorName: color.name,
+              priceModifierCol: color.priceModifier,
+              locPhoto: color.locPhoto
             })
           : obj
       )
     }));
   };
 
-  clickChangeCapacity = event => {
-    const iditem = event.target.getAttribute("iditem") * 1;
-    const capacityID = event.target.getAttribute("capacity_id") * 1;
-    const capacityName = event.target.getAttribute("name");
-    const priceModifierCap = event.target.getAttribute("price_modifier") * 1;
+  clickChangeCapacity = (capacity, id) => {
     this.setState(prevState => ({
       choices: prevState.choices.map(obj =>
-        obj.id === iditem
+        obj.id === id
           ? Object.assign(obj, {
-              capacityID: capacityID,
-              capacityName: capacityName,
-              priceModifierCap: priceModifierCap
+              capacityID: capacity.id,
+              capacityName: capacity.name,
+              priceModifierCap: capacity.priceModifier
             })
           : obj
       )
@@ -132,11 +128,12 @@ class App extends Component {
     const idbutton = event.target.getAttribute("id_button") * 1;
     this.setState(prevState => ({
       bought: [...prevState.bought, this.state.choices[idbutton - 1]],
-      sumCost:
+      sumCost: (
         prevState.sumCost +
         this.state.choices[idbutton - 1].price +
         this.state.choices[idbutton - 1].priceModifierCol +
-        this.state.choices[idbutton - 1].priceModifierCap,
+        this.state.choices[idbutton - 1].priceModifierCap
+      ).toFixed(2),
       choices: [],
       activeBusket: !this.state.activeBusket
     }));
@@ -176,7 +173,20 @@ class App extends Component {
   };
 
   setData = () => {
-    const products = this.state.bought;
+    const products = this.state.bought.map(buy => ({
+      id: buy.id,
+      options: [
+        {
+          id: 100,
+          value: buy.colorID
+        },
+        {
+          id: 101,
+          value: buy.capacityID
+        }
+      ],
+      amount: buy.price + buy.priceModifierCap + buy.priceModifierCol
+    }));
     const order = {
       user: {
         name: this.state.name,
@@ -191,14 +201,17 @@ class App extends Component {
       },
       products: products
     };
+    console.log(order);
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const validation = this.formValidation();
-    console.log(validation);
     if (validation.correct) {
+      this.setData();
       this.setState({
+        sumCost: 0,
+        bought: [],
         name: "",
         surname: "",
         email: "",
@@ -278,6 +291,21 @@ class App extends Component {
     };
   };
 
+  deleteProduct = id => {
+    const bought = [...this.state.bought];
+    this.setState(prevState => ({
+      sumCost:
+        prevState.sumCost -
+        (this.state.bought[id].price +
+          this.state.bought[id].priceModifierCap +
+          this.state.bought[id].priceModifierCol)
+    }));
+    bought.splice(id, 1);
+    this.setState({
+      bought: bought
+    });
+  };
+
   render() {
     const { name, surname, email, street, houseNumber, city, postcode } = this.state;
     return (
@@ -288,6 +316,7 @@ class App extends Component {
         </header>
         {this.state.activeBusket && (
           <Bought
+            delete={this.deleteProduct}
             clickOrder={this.clickHandleOrder}
             clickContinue={this.clickHandleBasket}
             active={this.state.activeBusket}

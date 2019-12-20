@@ -1,16 +1,9 @@
 import React from "react";
 
 const Capacity = props => {
-  const capacities = props.capacities.map((capacity, index) => (
-    <div
-      className="capacities"
-      onClick={props.click}
-      key={capacity.id}
-      name={capacity.name}
-      capacity_id={capacity.id}
-      price_modifier={capacity.priceModifier}
-      iditem={props.iditem}
-    >
+  const id = props.iditem;
+  const capacities = props.capacities.map(capacity => (
+    <div className="capacities" onClick={() => props.click(capacity, id)} key={capacity.id}>
       {capacity.name}
     </div>
   ));

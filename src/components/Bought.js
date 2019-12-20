@@ -6,6 +6,7 @@ const Bought = props => {
     <div className="boughtProduct" key={index}>
       <img src={product.locPhoto} alt={product.name}></img>
       <h1>{`${product.name} ${product.colorName} ${product.capacityName}`}</h1>
+      <button onClick={() => props.delete(index)}>X</button>
     </div>
   ));
   return (
