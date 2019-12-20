@@ -5,7 +5,22 @@ import Capacity from "./Capacity";
 import Buy from "./Buy";
 
 class Items extends Component {
+  state = {
+    active: []
+  };
   items = this.props.shopItems;
+
+  componentDidMount() {
+    const option = {
+      options: true,
+      spec: false
+    };
+    this.items.forEach(() => {
+      this.setState(prevState => ({
+        active: [...prevState.active, option]
+      }));
+    });
+  }
 
   render() {
     const choices = this.props.choices;
@@ -15,6 +30,10 @@ class Items extends Component {
           <img src={choices[index].locPhoto} alt={"dsfsd"}></img>
         </div>
         <h1>{`${choices[index].name} ${choices[index].colorName}`}</h1>
+        <div className="about">
+          <button>Options</button>
+          <button>Specifications</button>
+        </div>
         <Colors click={this.props.clickColor} colors={item.options[0].values} iditem={item.id} />
         <Capacity
           click={this.props.clickCapacity}
