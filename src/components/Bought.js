@@ -11,8 +11,14 @@ const Bought = props => {
   return (
     <div className="boughtCont">
       {boughtProducts}
-      <button onClick={props.click}>Continue shopping</button>
-      <button>Buy</button>
+      <h2>Sum: {props.sumCost}$</h2>
+      <hr></hr>
+      <button className="continue" onClick={props.clickContinue}>
+        Continue shopping
+      </button>
+      <button className="orderButton" onClick={props.clickOrder}>
+        Order
+      </button>
     </div>
   );
 };

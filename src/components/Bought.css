@@ -50,9 +50,20 @@
   bottom: 10px;
 }
 
-.boughtCont button:nth-child(1) {
+.continue {
   left: 15px;
 }
-.boughtCont button:nth-child(2) {
+.orderButton {
   right: 15px;
+}
+
+.boughtCont h2 {
+  position: relative;
+  left: 200px;
+  top: 140px;
+}
+
+hr {
+  position: relative;
+  top: 120px;
 }
