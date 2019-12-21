@@ -1,7 +1,7 @@
 .formCont {
   padding-top: 80px;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   height: calc(100vh - 80px);
   width: 100%;
   background-color: white;

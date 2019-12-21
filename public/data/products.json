@@ -4,6 +4,14 @@
     "name": "iPhone 8",
     "price": 99.99,
     "oldPrice": 599.0,
+    "specifications": {
+      "screen": "4.7",
+      "procesor": "Apple A11",
+      "coreProcesor": "Six-core",
+      "system": "IOS 11",
+      "ram": "2GB",
+      "aparatResolution": 12
+    },
     "options": [
       {
         "id": 100,
@@ -52,6 +60,14 @@
     "name": "iPhone 8 Plus",
     "price": 129.99,
     "oldPrice": 699.0,
+    "specifications": {
+      "screen": "5.5",
+      "procesor": "Apple A11",
+      "coreProcesor": "Six-core",
+      "system": "IOS 11",
+      "ram": "3GB",
+      "aparatResolution": 12
+    },
     "options": [
       {
         "id": 100,

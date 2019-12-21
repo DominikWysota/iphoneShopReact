@@ -93,6 +93,11 @@ class App extends Component {
         formActive: !this.state.formActive
       });
     }
+    if (!this.state.activeBusket) {
+      window.addEventListener("scroll", this.noScroll);
+    } else {
+      window.removeEventListener("scroll", this.noScroll);
+    }
   };
 
   clickChangeColor = (color, iditem) => {
@@ -126,14 +131,14 @@ class App extends Component {
 
   handleClickBuy = event => {
     const idbutton = event.target.getAttribute("id_button") * 1;
+    window.addEventListener("scroll", this.noScroll);
     this.setState(prevState => ({
       bought: [...prevState.bought, this.state.choices[idbutton - 1]],
-      sumCost: (
+      sumCost:
         prevState.sumCost +
-        this.state.choices[idbutton - 1].price +
-        this.state.choices[idbutton - 1].priceModifierCol +
-        this.state.choices[idbutton - 1].priceModifierCap
-      ).toFixed(2),
+        (this.state.choices[idbutton - 1].price +
+          this.state.choices[idbutton - 1].priceModifierCol +
+          this.state.choices[idbutton - 1].priceModifierCap),
       choices: [],
       activeBusket: !this.state.activeBusket
     }));
@@ -305,6 +310,10 @@ class App extends Component {
       bought: bought
     });
   };
+
+  noScroll() {
+    window.scrollTo(0, 0);
+  }
 
   render() {
     const { name, surname, email, street, houseNumber, city, postcode } = this.state;
