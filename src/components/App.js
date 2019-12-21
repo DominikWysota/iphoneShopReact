@@ -4,6 +4,7 @@ import "./App.css";
 import Basket from "./Basket";
 import Bought from "./Bought";
 import Form from "./Form";
+import Statement from "./Statement";
 
 class App extends Component {
   state = {
@@ -20,6 +21,7 @@ class App extends Component {
     houseNumber: "",
     city: "",
     postcode: "",
+    send: false,
     errors: {
       name: false,
       surname: false,
@@ -38,7 +40,7 @@ class App extends Component {
     street_incorrect: "Please street",
     houseNumber_incorrect: "Please house number",
     city_incorrect: "Please city",
-    postcode: "Please correct postcode"
+    postcode_incorrect: "Please correct postcode"
   };
 
   getData() {
@@ -169,6 +171,15 @@ class App extends Component {
     }
   };
 
+  clickHandleBack = () => {
+    window.removeEventListener("scroll", this.noScroll);
+    this.setState({
+      activeBusket: false,
+      formActive: false,
+      send: false
+    });
+  };
+
   handleChangeInputs = e => {
     const name = e.target.name;
     const value = e.target.value;
@@ -215,6 +226,7 @@ class App extends Component {
     if (validation.correct) {
       this.setData();
       this.setState({
+        send: true,
         sumCost: 0,
         bought: [],
         name: "",
@@ -335,6 +347,7 @@ class App extends Component {
         )}
         {this.state.formActive && (
           <Form
+            clickBack={this.clickHandleOrder}
             errors={this.state.errors}
             messages={this.messages}
             clickChange={this.handleChangeInputs}
@@ -348,6 +361,7 @@ class App extends Component {
             postcode={postcode}
           />
         )}
+        {this.state.send && <Statement click={this.clickHandleBack} />}
         <section>
           {this.state.shopData && (
             <Items

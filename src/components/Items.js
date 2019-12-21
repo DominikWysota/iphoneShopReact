@@ -12,9 +12,6 @@ class Items extends Component {
   items = this.props.shopItems;
 
   componentDidMount() {
-    // const option = {
-    //   spec: false
-    // };
     this.items.forEach((item, index) => {
       this.setState(prevState => ({
         active: [
