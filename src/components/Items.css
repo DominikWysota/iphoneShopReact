@@ -55,6 +55,7 @@
   height: 30px;
   width: 90px;
   font-size: 18px;
+  font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
@@ -65,9 +66,10 @@
 }
 
 .about button {
+  font-weight: bold;
   border: 1px solid black;
-  background-color: rgb(43, 43, 43);
-  color: white;
+  background-color: rgb(151, 151, 151);
+  color: black;
   height: 25px;
   width: 50%;
   font-size: 13px;

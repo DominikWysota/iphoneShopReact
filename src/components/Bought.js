@@ -17,7 +17,7 @@ const Bought = props => {
       {boughtProducts.length > 0 && (
         <div className="boughtCont">
           {boughtProducts}
-          <h2>Sum: {props.sumCost.toFixed(2)}$</h2>
+          <h2>Cost: {props.sumCost.toFixed(2)}$</h2>
           <hr></hr>
           <div className="buttonsBought">
             <button className="continue" onClick={props.clickContinue}>

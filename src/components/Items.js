@@ -59,14 +59,38 @@ class Items extends Component {
         </div>
         <h1>{`${choices[index].name} ${choices[index].colorName}`}</h1>
         <div className="about">
-          <button onClick={() => this.handleClickOptions(index)}>Options</button>
-          <button onClick={() => this.handleClickSpec(index)}>Specifications</button>
+          <button
+            style={
+              this.state.loaded === true && this.state.active[index].spec
+                ? null
+                : { backgroundColor: "rgb(43, 43, 43)", color: "white", border: "2px solid black" }
+            }
+            onClick={() => this.handleClickOptions(index)}
+          >
+            Options
+          </button>
+          <button
+            style={
+              this.state.loaded === true && this.state.active[index].spec
+                ? { backgroundColor: "rgb(43, 43, 43)", color: "white", border: "2px solid black" }
+                : null
+            }
+            onClick={() => this.handleClickSpec(index)}
+          >
+            Specifications
+          </button>
         </div>
         <div className="containerAbout">
-          <h3>Color:</h3>
-          <Colors click={this.props.clickColor} colors={item.options[0].values} iditem={item.id} />
+          <h3>Colors:</h3>
+          <Colors
+            click={this.props.clickColor}
+            colors={item.options[0].values}
+            iditem={item.id}
+            photoBorder={choices[index].locPhoto}
+          />
           <h3>Built-in memory[GB]:</h3>
           <Capacity
+            capacityBackground={choices[index].capacityName}
             click={this.props.clickCapacity}
             capacities={item.options[1].values}
             iditem={item.id}
