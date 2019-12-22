@@ -21,19 +21,19 @@
             "id": 1000,
             "name": "Silver",
             "priceModifier": 0,
-            "locPhoto": "/img/ip8silver.jpg"
+            "locPhoto": "./img/ip8silver.jpg"
           },
           {
             "id": 1001,
             "name": "Space Gray",
             "priceModifier": 0,
-            "locPhoto": "/img/ip8spacegray.jpg"
+            "locPhoto": "./img/ip8spacegray.jpg"
           },
           {
             "id": 1002,
             "name": "Gold",
             "priceModifier": 0,
-            "locPhoto": "/img/ip8gold.jpg"
+            "locPhoto": "./img/ip8gold.jpg"
           }
         ]
       },
@@ -77,25 +77,25 @@
             "id": 1000,
             "name": "Silver",
             "priceModifier": 0,
-            "locPhoto": "/img/ip8plus-silver.jpg"
+            "locPhoto": "./img/ip8plus-silver.jpg"
           },
           {
             "id": 1001,
             "name": "Space Gray",
             "priceModifier": 0,
-            "locPhoto": "/img/ip8plus-spgray.jpg"
+            "locPhoto": "./img/ip8plus-spgray.jpg"
           },
           {
             "id": 1002,
             "name": "Gold",
             "priceModifier": 0,
-            "locPhoto": "/img/ip8plus-gold.jpg"
+            "locPhoto": "./img/ip8plus-gold.jpg"
           },
           {
             "id": 1003,
             "name": "Red",
             "priceModifier": 10.0,
-            "locPhoto": "/img/ip8plus-red.jpg"
+            "locPhoto": "./img/ip8plus-red.jpg"
           }
         ]
       },
