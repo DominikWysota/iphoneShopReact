@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/iphoneShopReact/static/css/main.7c9bc10b.chunk.css",
+    "main.js": "/iphoneShopReact/static/js/main.a27a2f0b.chunk.js",
+    "main.js.map": "/iphoneShopReact/static/js/main.a27a2f0b.chunk.js.map",
+    "runtime-main.js": "/iphoneShopReact/static/js/runtime-main.e61b10f9.js",
+    "runtime-main.js.map": "/iphoneShopReact/static/js/runtime-main.e61b10f9.js.map",
+    "static/js/2.cbeb5d79.chunk.js": "/iphoneShopReact/static/js/2.cbeb5d79.chunk.js",
+    "static/js/2.cbeb5d79.chunk.js.map": "/iphoneShopReact/static/js/2.cbeb5d79.chunk.js.map",
+    "index.html": "/iphoneShopReact/index.html",
+    "precache-manifest.6360b357774c46839cb4873566b7f36d.js": "/iphoneShopReact/precache-manifest.6360b357774c46839cb4873566b7f36d.js",
+    "service-worker.js": "/iphoneShopReact/service-worker.js",
+    "static/css/main.7c9bc10b.chunk.css.map": "/iphoneShopReact/static/css/main.7c9bc10b.chunk.css.map",
+    "static/js/2.cbeb5d79.chunk.js.LICENSE": "/iphoneShopReact/static/js/2.cbeb5d79.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e61b10f9.js",
+    "static/js/2.cbeb5d79.chunk.js",
+    "static/css/main.7c9bc10b.chunk.css",
+    "static/js/main.a27a2f0b.chunk.js"
+  ]
+}

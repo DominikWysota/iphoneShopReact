@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 8",
+    "price": 99.99,
+    "oldPrice": 599.0,
+    "specifications": {
+      "screen": "4.7",
+      "procesor": "Apple A11",
+      "coreProcesor": "Six-core",
+      "system": "IOS 11",
+      "ram": "2GB",
+      "aparatResolution": 12
+    },
+    "options": [
+      {
+        "id": 100,
+        "name": "Color",
+        "values": [
+          {
+            "id": 1000,
+            "name": "Silver",
+            "priceModifier": 0,
+            "locPhoto": "/img/ip8silver.jpg"
+          },
+          {
+            "id": 1001,
+            "name": "Space Gray",
+            "priceModifier": 0,
+            "locPhoto": "/img/ip8spacegray.jpg"
+          },
+          {
+            "id": 1002,
+            "name": "Gold",
+            "priceModifier": 0,
+            "locPhoto": "/img/ip8gold.jpg"
+          }
+        ]
+      },
+      {
+        "id": 101,
+        "name": "Capacity",
+        "values": [
+          {
+            "id": 1100,
+            "name": "64 GB",
+            "priceModifier": 0
+          },
+          {
+            "id": 1101,
+            "name": "256 GB",
+            "priceModifier": 40.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "iPhone 8 Plus",
+    "price": 129.99,
+    "oldPrice": 699.0,
+    "specifications": {
+      "screen": "5.5",
+      "procesor": "Apple A11",
+      "coreProcesor": "Six-core",
+      "system": "IOS 11",
+      "ram": "3GB",
+      "aparatResolution": 12
+    },
+    "options": [
+      {
+        "id": 100,
+        "name": "Color",
+        "values": [
+          {
+            "id": 1000,
+            "name": "Silver",
+            "priceModifier": 0,
+            "locPhoto": "/img/ip8plus-silver.jpg"
+          },
+          {
+            "id": 1001,
+            "name": "Space Gray",
+            "priceModifier": 0,
+            "locPhoto": "/img/ip8plus-spgray.jpg"
+          },
+          {
+            "id": 1002,
+            "name": "Gold",
+            "priceModifier": 0,
+            "locPhoto": "/img/ip8plus-gold.jpg"
+          },
+          {
+            "id": 1003,
+            "name": "Red",
+            "priceModifier": 10.0,
+            "locPhoto": "/img/ip8plus-red.jpg"
+          }
+        ]
+      },
+      {
+        "id": 101,
+        "name": "Capacity",
+        "values": [
+          {
+            "id": 1100,
+            "name": "64 GB",
+            "priceModifier": 0
+          },
+          {
+            "id": 1101,
+            "name": "256 GB",
+            "priceModifier": 40.0
+          }
+        ]
+      }
+    ]
+  }
+]
