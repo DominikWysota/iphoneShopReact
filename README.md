@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). This is my visulisation iphone shop from the side front-end. This project is written in language JavaScript and i was using framework React.
+  This project was bootstrapped with Create React App. This is my visulisation iphone shop from the side front-end. This project is written in language JavaScript and i was using framework React.
 </td>
 </tr>
 </table>
