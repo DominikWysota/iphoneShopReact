@@ -34,13 +34,13 @@ class App extends Component {
   };
 
   messages = {
-    name_incorrect: "Please first name",
-    surname_incorrect: "Please last name",
-    email_incorrect: "Please correct email",
-    street_incorrect: "Please street",
-    houseNumber_incorrect: "Please house number",
-    city_incorrect: "Please city",
-    postcode_incorrect: "Please correct postcode"
+    name_incorrect: "Please enter your first name",
+    surname_incorrect: "Please enter your last name",
+    email_incorrect: "Please enter correct email",
+    street_incorrect: "Please enter street",
+    houseNumber_incorrect: "Please enter house number",
+    city_incorrect: "Please enter city",
+    postcode_incorrect: "Please correct postcode (00-000)"
   };
 
   getData() {
@@ -88,6 +88,7 @@ class App extends Component {
 
   clickHandleBasket = () => {
     this.setState({
+      send: false,
       activeBusket: !this.state.activeBusket
     });
     if (this.state.formActive) {

@@ -10,7 +10,6 @@
 }
 .photo {
   background-color: white;
-  height: 60%;
   width: 90%;
   margin: 10px auto 0px auto;
 }
@@ -26,7 +25,7 @@
 }
 
 .item h2 {
-  font-size: 20px;
+  font-size: 15px;
   margin-left: 20px;
   padding-bottom: 20px;
 }
@@ -48,7 +47,7 @@
 .buttonBuy {
   position: absolute;
   right: 25px;
-  bottom: 20px;
+  bottom: 30px;
   border: 1px solid black;
   background-color: rgb(43, 43, 43);
   color: white;
@@ -103,4 +102,10 @@
 .specyfications p {
   margin: 0;
   font-size: 15px;
+}
+
+@media screen and (min-width: 400px) {
+  .item {
+    max-width: 270px;
+  }
 }

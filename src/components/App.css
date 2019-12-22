@@ -22,8 +22,10 @@ header h1 {
 }
 
 section {
-  position: absolute;
-  top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1024px;
+  margin: 50px auto 0px auto;
 }
 
 .iconBasket {

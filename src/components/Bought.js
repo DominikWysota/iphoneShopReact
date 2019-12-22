@@ -16,16 +16,18 @@ const Bought = props => {
     <>
       {boughtProducts.length > 0 && (
         <div className="boughtCont">
-          {boughtProducts}
-          <h2>Cost: {props.sumCost.toFixed(2)}$</h2>
-          <hr></hr>
-          <div className="buttonsBought">
-            <button className="continue" onClick={props.clickContinue}>
-              Continue shopping
-            </button>
-            <button className="orderButton" onClick={props.clickOrder}>
-              Order
-            </button>
+          <div className="boughtInf">
+            {boughtProducts}
+            <h2>Cost: {props.sumCost.toFixed(2)}$</h2>
+            <hr></hr>
+            <div className="buttonsBought">
+              <button className="continue" onClick={props.clickContinue}>
+                Continue shopping
+              </button>
+              <button className="orderButton" onClick={props.clickOrder}>
+                Order
+              </button>
+            </div>
           </div>
         </div>
       )}
